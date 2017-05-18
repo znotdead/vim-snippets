@@ -3,6 +3,14 @@ priority -50
 extends html
 
 # Generic Tags
+snippet tt "" bi
+{% ${1} %}
+endsnippet
+
+snippet var "" bi
+{{ ${1} }}
+endsnippet
+
 snippet % "" bi
 {% $1 %}$2
 endsnippet
@@ -41,8 +49,16 @@ snippet comment "" bi
 {% endcomment %}
 endsnippet
 
+snippet csrf "" bi
+{% csrf_token %}
+endsnippet
+
 snippet cycle "" bi
 {% cycle ${1:val1} ${2:val2} ${3:as $4} %}
+endsnippet
+
+snippet cycleas "" bi
+{% cycle ${1} as ${2} %}
 endsnippet
 
 snippet debug "" bi
@@ -146,8 +162,18 @@ snippet trans "" bi
 {% trans "${1:string}" %}
 endsnippet
 
+snippet blocktrans "" bi
+{% blocktrans %}
+	${VISUAL}
+{% endblocktrans %}
+endsnippet
+
 snippet url "" bi
 {% url $1 as $2 %}
+endsnippet
+
+snippet urlas "" bi
+{% url ${1} as ${2} %}
 endsnippet
 
 snippet widthratio "" bi
@@ -184,16 +210,6 @@ endsnippet
 
 snippet iblock "" bi
 {% block ${1:blockname} %}${VISUAL}{% endblock $1 %}
-endsnippet
-
-snippet csrf "" bi
-{% csrf_token %}
-endsnippet
-
-snippet blocktrans "" bi
-{% blocktrans %}
-    ${VISUAL}
-{% endblocktrans %}
 endsnippet
 
 snippet lorem "" bi
